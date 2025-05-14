@@ -12,7 +12,7 @@
       height: 100%;
       background-color: #f0f0f0;
     }
-
+  
     .overlay {
       position: relative;
       display: flex;
@@ -20,9 +20,9 @@
       align-items: center;
       min-height: 100vh;
       background: url('files/skinnishlogo.jpg') no-repeat center center;
-      background-size: contain;
+      background-size: 400px; /* Increased default size */
     }
-
+  
     .overlay::before {
       content: '';
       position: absolute;
@@ -30,7 +30,7 @@
       background-color: rgba(255, 255, 255, 0.85);
       z-index: 0;
     }
-
+  
     .logo-area {
       flex: 1;
       display: flex;
@@ -42,62 +42,76 @@
       z-index: 1;
       width: 100%;
     }
-
+  
     .buttons {
       display: flex;
       flex-direction: column;
-      width: 100%;
+      width: 80%;
       max-width: 320px;
       gap: 15px;
     }
-
+  
     .buttons button {
       padding: 16px;
       font-size: 18px;
       border: none;
       border-radius: 8px;
-      background-color: #a27c4c; /* Same color for all buttons */
+      background-color: #a27c4c;
       color: white;
       cursor: pointer;
       transition: opacity 0.3s;
       width: 100%;
     }
-
+  
     .buttons button:hover {
       opacity: 0.85;
     }
-
+  
+    /* Tablet */
     @media (max-width: 768px) {
-      .overlay {
-        background-size: 200px;
-      }
-
+     
+  
       .buttons button {
         font-size: 16px;
         padding: 14px;
       }
     }
-
+  
+    /* Mobile */
     @media (max-width: 480px) {
+  
       .buttons {
         max-width: 90%;
       }
-
+  
       .buttons button {
         font-size: 15px;
         padding: 12px;
       }
     }
+    
+@media (max-width: 768px) {
+  .overlay {
+    background-size: 550px; /* Slightly smaller for tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .overlay {
+    background-size: 400px; /* Increased size for mobile */
+  }
+}
   </style>
+  
 </head>
 <body>
 
   <div class="overlay">
     <div class="logo-area">
       <div class="buttons">
-        <button onclick="openPDF('/menu1.pdf')">Women's Care</button>
-        <button onclick="openPDF('/menu3.pdf')">Skin Care</button>
-        <button onclick="openPDF('/menu2.pdf')">Men's Care</button>
+        <button onclick="openPDF('/files/menu1.pdf')">Women's Care</button>
+        <button onclick="openPDF('/files/menu3.pdf')">Skin Care</button>
+        <button onclick="openPDF('/files/menu2.pdf')">Men's Care</button>
       </div>
     </div>
   </div>
